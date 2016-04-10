@@ -2,13 +2,32 @@ import os
 import serial
 import time
 
-ser = serial.Serial(
-    port = 'COM3',\
-    baudrate = 9600,\
-    bytesize = serial.EIGHTBITS,\
-    timeout = 3)
+serial_port = 'COM3'
+ser = None
+connected = False
 
-time.sleep(1)
+def try_connect(port):
+    try:
+        print("Trying to connect to serial port " + port)
+        ser = serial.Serial(
+            port = port,\
+            baudrate = 9600,\
+            bytesize = serial.EIGHTBITS,\
+            timeout = 3)
+        time.sleep(1)
+        return True
+    except (serial.serialutil.SerialException):
+        print("Couldn't connect to serial port " + port)
+        return False
+
+while not connected:
+    connected = try_connect(serial_port)
+    if not connected:
+        user_input = input("Retry connection now? (y/n):")
+        if user_input.lower() == "y":
+            continue
+        else:
+            exit()
 
 print("connected to serial on port: " + ser.portstr)
 
