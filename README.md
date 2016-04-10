@@ -4,6 +4,7 @@ Simple python script which cycles through audio devices on serial message from a
 ## How to run:
 * Change path in Audio_switcher.bat to appropriate path and put in Windows autostart folder.
 * Ensure NirCMD.exe is in the appropriate directory.
+* Update serial_port to the port in use by your serial device.
 * Update device names in serial_listener.py if needed. Add as many as you want to cycle though.
 
 Uses NirCMD for access to Windows default audio device switching - http://www.nirsoft.net/utils/nircmd.html
