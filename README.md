@@ -7,4 +7,7 @@ Simple python script which cycles through audio devices on serial message from a
 * Update serial_port to the port in use by your serial device.
 * Update device names in serial_listener.py if needed. Add as many as you want to cycle though.
 
+button_listen.ino is a simple example of how to connect a button to an arduino and send the required serial on a rising voltage edge
+
+
 Uses NirCMD for access to Windows default audio device switching - http://www.nirsoft.net/utils/nircmd.html
